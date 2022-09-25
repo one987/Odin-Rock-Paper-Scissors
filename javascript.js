@@ -1,10 +1,11 @@
 
-//computer choice function()
-
+//game variables:
 let userScore = 0;
 let botScore = 0;
 let gameCount = 0;
 
+
+// computer choice function():
 function getBotChoice() {
 
     let items = [
@@ -52,15 +53,17 @@ function playRound(playerSelection, computerSelection) {
         gameCount++;
         return "You Win! Scissors beats Paper.";
     }
-    //add another if statement for writing giberish in the prompt
+    else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+        gameCount++;
+        return "It's a tie!"
+    }
     else {
         gameCount++;
-        return "Tie game!"
+        return "Error! You have  to choose Rock, Paper or Scissors!"
     }
 }
 
 // Game function:
-
 function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
@@ -73,6 +76,7 @@ function game() {
     }
 }
 
+// Final score function:
 function finalScore() {
 
     if (gameCount == 5 && userScore > botScore) {
