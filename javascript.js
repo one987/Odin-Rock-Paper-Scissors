@@ -3,6 +3,7 @@
 
 let userScore = 0;
 let botScore = 0;
+let gameCount = 0;
 
 function getBotChoice() {
 
@@ -12,9 +13,9 @@ function getBotChoice() {
         "Scissors"
     ];
 
-    let botChoice = items[Math.floor(Math.random()*items.length)]; 
+    let botChoice = items[Math.floor(Math.random() * items.length)];
 
-    return botChoice;  
+    return botChoice;
 }
 
 //Single round of rock paper scisors function()
@@ -23,29 +24,37 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper") {
         botScore++;
+        gameCount++;
         return "You lose! Paper beats Rock.";
     }
     else if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors") {
         userScore++;
-        return "You win! Rock beats Scissors."; 
+        gameCount++;
+        return "You win! Rock beats Scissors.";
     }
     else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock") {
         userScore++;
+        gameCount++;
         return "You win! Paper beats Rock.";
     }
     else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissors") {
         botScore++;
+        gameCount++;
         return "You Lose! Scissors beats Paper.";
     }
     else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "rock") {
         botScore++;
+        gameCount++;
         return "You lose! Rock beats Scissors.";
     }
     else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "paper") {
         userScore++;
+        gameCount++;
         return "You Win! Scissors beats Paper.";
     }
+    //add another if statement for writing giberish in the prompt
     else {
+        gameCount++;
         return "Tie game!"
     }
 }
@@ -55,16 +64,32 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
-        let computerSelection =getBotChoice();
-        console.log("You:", playerSelection, "", "Bot:",computerSelection);
+        let computerSelection = getBotChoice();
+        console.log("You:", playerSelection, "", "Bot:", computerSelection);
         console.log(playRound(playerSelection, computerSelection));
-        console.log("Score:","You:", userScore, "Bot:", botScore);
-        
-        
-        //declare a winner at the end of 5 rounds
+        console.log("Score:", "You:", userScore, "Bot:", botScore);
+        console.log(finalScore());
 
-     }
+    }
 }
 
+function finalScore() {
+
+    if (gameCount == 5 && userScore > botScore) {
+        return "You win the Game!";
+    }
+    else if (gameCount == 5 && userScore < botScore) {
+        return "You lose the Game!";
+    }
+
+    else if (gameCount == 5 && userScore == botScore) {
+        return "It's a tie Game!";
+    }
+
+    else {
+        return "";
+    }
+}
 
 game();
+
