@@ -1,4 +1,3 @@
-console.log("Hello World!");
 
 //computer choice function()
 function getBotChoice() {
@@ -41,7 +40,21 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //function test:
-let playerSelection = "Paper";
-let computerSelection = getBotChoice();
-console.log(playRound(playerSelection, computerSelection));
+//let playerSelection = "Paper";
+//let computerSelection = getBotChoice();
+//console.log(playRound(playerSelection, computerSelection));
 
+// Game function:
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        
+        let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
+        let computerSelection =getBotChoice();
+        console.log("you:", playerSelection, "", "Bot:",computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+
+     }
+}
+
+game();
