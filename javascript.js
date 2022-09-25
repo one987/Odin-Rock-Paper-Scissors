@@ -14,22 +14,34 @@ function getBotChoice() {
     return botChoice;  
 }
 
-//single round of rock paper scisors function()
+//Single round of rock paper scisors function()
 function playRound(playerSelection, computerSelection) {
 
-    //if playerSelection equals computerSelection return "Tie Game!"
-
-    //if playerSelection is Rock and computerSelection is Paper return "You lose! Paper beats Rock."
-
-    //if playerSelection is Rock and computerSelection is Scissors return "You win! Rock beats Scissors."
-
-    //if playerSelection is Paper and computerSelection is Rock return "You win! Paper beats Rock."
-
-    //if playerSelection is Paper and computerSelection is Scissors return "You Lose! Scissors beats Paper."
-
-    //if playerSelection is Scissors and computerSelection is Rock return "You lose! Rock beats Scissors."
-
-    //if playerSelection is Scissors and computerSelection is paper return "You Win! Scissors beats Paper."
-    
+    if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper") {
+        return "You lose! Paper beats Rock.";
+    }
+    else if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors") {
+        return "You win! Rock beats Scissors.";
+    }
+    else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock") {
+        return "You win! Paper beats Rock.";
+    }
+    else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissors") {
+        return "You Lose! Scissors beats Paper.";
+    }
+    else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "rock") {
+        return "You lose! Rock beats Scissors.";
+    }
+    else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "paper") {
+        return "You Win! Scissors beats Paper.";
+    }
+    else {
+        return "Tie game!"
+    }
 }
+
+//function test:
+let playerSelection = "Paper";
+let computerSelection = getBotChoice();
+console.log(playRound(playerSelection, computerSelection));
 
