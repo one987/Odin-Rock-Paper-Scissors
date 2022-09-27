@@ -1,14 +1,14 @@
 
-//game variables:
+
 let userScore = 0;
 let botScore = 0;
 let gameCount = 0;
 
 
-// computer choice function():
+
 function getBotChoice() {
 
-    let items = [
+    const items = [
         "Rock",
         "Paper",
         "Scissors"
@@ -91,7 +91,7 @@ function finalScore() {
     }
 
     else {
-        return "";
+        return "";  //test if removing this will yield a cleaner code
     }
 }
 
