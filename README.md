@@ -7,6 +7,8 @@ For this assignment I'm going to be programming my first simple game using Javas
 I will report back when I'm done.
 
 Calling this one finished for now. That was a lot of fun!
-I had lots of fu figuring out how to make it all work. 
+
 I used google when I was stuck and figured out some errors by myself.
 I'll likely revisit and clean up the code a but when we build a GUI for it.
+
+Testing pushing and working on a new branch with git and github.
