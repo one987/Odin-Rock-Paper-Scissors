@@ -1,0 +1,15 @@
+body {
+    background-color: pink;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-square {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

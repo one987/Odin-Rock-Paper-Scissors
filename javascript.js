@@ -66,7 +66,7 @@ function playRound(playerSelection, computerSelection) {
 // Game function:
 function game() {
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
+        //let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
         let computerSelection = getBotChoice();
         console.log("You:", playerSelection, "", "Bot:", computerSelection);
         console.log(playRound(playerSelection, computerSelection));
