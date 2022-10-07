@@ -5,11 +5,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .game-square {
     margin-top: 50px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
 }
