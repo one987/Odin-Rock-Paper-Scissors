@@ -2,22 +2,22 @@
 
 let userScore = 0;
 let botScore = 0;
-let gameCount = 0;
 
-const rockBtn = document.querySelector('#rock');
-rockBtn.addEventListener('click', () =>  {
-    console.log("rock");
-    
-})
-const paperBtn = document.querySelector('#paper');
-paperBtn.addEventListener('click', () =>  {
-    console.log("paper");
-})
-const scissorsBtn = document.querySelector('#scissors');
-scissorsBtn.addEventListener('click', () =>  {
-    console.log("scissors");
-})
 
+    document.getElementById('rock').onclick = function(e){
+        playerChoice = 'Rock';
+        playGame();
+      }
+    document.getElementById('paper').onclick = function(e){
+        playerChoice = 'Paper';
+        playGame();
+      }
+    document.getElementById('scissors').onclick = function(e){
+        playerChoice = 'Scissors';
+        playGame();
+      }
+
+      
 function getBotChoice() {
 
     const items = ["Rock", "Paper", "Scissors"];
@@ -28,35 +28,29 @@ function getBotChoice() {
 //Single round of rock paper scisors function()
 function playRound(playerSelection, computerSelection) {
     
-    if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper" || 
-    playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissors" ||
-    playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "rock" ) {
+    if (playerSelection == "Rock" && computerSelection == "Paper" || 
+    playerSelection == "Paper" && computerSelection == "Scissors" ||
+    playerSelection == "Scissors" && computerSelection== "Rock" ) {
         botScore++;
-        gameCount++;
         return `You lose! ${computerSelection} beats ${playerSelection}`;
     }
-    else if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors" ||
-    playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock" ||
-    playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "paper" ) {
+    else if (playerSelection == "Rock" && computerSelection == "Scissors" ||
+    playerSelection == "Paper" && computerSelection == "Rock" ||
+    playerSelection == "Scissors" && computerSelection == "Paper" ) {
         userScore++;
-        gameCount++;
         return `You win! ${playerSelection} beats ${computerSelection}`;
     }
-    else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
-        gameCount++;
-        return "It's a tie!"
-    }
-    else {
-        gameCount++;
-        return "Error! You have to choose Rock, Paper or Scissors!"
-    }
+    else (playerSelection == computerSelection) 
+        return "It's a tie!";
+    
 }
 
 // Game function:
 function playGame() {
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
+    //for (let i = 0; i < 5; i++) {
+        //let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
+        const playerSelection = playerChoice;
         const computerSelection = getBotChoice();
         console.log("You:", playerSelection, "", "Bot:", computerSelection);
         console.log(playRound(playerSelection, computerSelection));
@@ -64,26 +58,25 @@ function playGame() {
         console.log(finalScore());
 
     }
-}
+//}
 
 // Final score function:
 function finalScore() {
 
-    if (gameCount == 5 && userScore > botScore) {
+    if (userScore == 5) {
         return "You win the Game!";
+        //add reset function
     }
-    else if (gameCount == 5 && userScore < botScore) {
+    else if (botScore == 5) {
         return "You lose the Game!";
-    }
-    else if (gameCount == 5 && userScore == botScore) {
-        return "It's a tie Game!";
+        //add reset function
     }
     else {
         return "";  //test if removing this will yield a cleaner code
     }
 }
 
-playGame();
+
 
 //to do for refactor:
 //add event listener to buttons
