@@ -1,4 +1,4 @@
-
+//Yes this code is messy but I'm a n00b so cut me some slack
 
 let userScore = 0;
 let botScore = 0;
@@ -6,18 +6,19 @@ let botScore = 0;
 const selections = document.querySelector('.selections');
 const message = document.querySelector('.message');
 const score = document.querySelector('.score');
+const win = document.querySelector('.win');
 
 
 document.getElementById('rock').onclick = function(e){
-        playerChoice = 'Rock';
+        playerSelection = 'Rock';
         playGame();
       }
 document.getElementById('paper').onclick = function(e){
-        playerChoice = 'Paper';
+        playerSelection = 'Paper';
         playGame();
       }
 document.getElementById('scissors').onclick = function(e){
-        playerChoice = 'Scissors';
+        playerSelection = 'Scissors';
         playGame();
       }
 
@@ -52,20 +53,13 @@ function playRound(playerSelection, computerSelection) {
 // Game function:
 function playGame() {
 
-    //for (let i = 0; i < 5; i++) {
-        //let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
-        const playerSelection = playerChoice;
         const computerSelection = getBotChoice();
-        console.log("You:", playerSelection, "", "Bot:", computerSelection);
-        selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
-        
         message.textContent = `${playRound(playerSelection, computerSelection)}`;
-        console.log("Score:", "You:", userScore, "Bot:", botScore);
+        selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
         score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
-        console.log(finalScore());
+        win.textContent = `${finalScore()}`;
 
     }
-//}
 
 // Final score function:
 function finalScore() {
@@ -83,5 +77,11 @@ function finalScore() {
     }
 }
 
-
+//to do:
+// add game winning message
+// add game reset button / end game function
+// rework text and score content
+// spruce up the html and css to design a nice simple UI
+// ???
+// profit
 
