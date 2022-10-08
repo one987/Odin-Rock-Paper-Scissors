@@ -26,3 +26,9 @@ header {
     align-items: center;
     gap: 10px;
 }
+
+.reset {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}

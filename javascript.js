@@ -8,19 +8,27 @@ const message = document.querySelector('.message');
 const score = document.querySelector('.score');
 const win = document.querySelector('.win');
 
+//player selection:
+document.getElementById('rock').onclick = () => {
+    playerSelection = 'Rock';
+    playGame();
+}
+document.getElementById('paper').onclick = () => {
+    playerSelection = 'Paper';
+    playGame();
+}
+document.getElementById('scissors').onclick = () => {
+    playerSelection = 'Scissors';
+    playGame();
+}
 
-document.getElementById('rock').onclick = function(e){
-        playerSelection = 'Rock';
-        playGame();
-      }
-document.getElementById('paper').onclick = function(e){
-        playerSelection = 'Paper';
-        playGame();
-      }
-document.getElementById('scissors').onclick = function(e){
-        playerSelection = 'Scissors';
-        playGame();
-      }
+//reset game button:
+document.getElementById('reset').onclick = () => {
+    botScore = 0;
+    userScore = 0;
+    score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
+    win.textContent = "";
+}
 
       
 function getBotChoice() {
@@ -54,6 +62,7 @@ function playRound(playerSelection, computerSelection) {
 function playGame() {
 
         const computerSelection = getBotChoice();
+        //DOM mods:
         message.textContent = `${playRound(playerSelection, computerSelection)}`;
         selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
         score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
@@ -66,21 +75,19 @@ function finalScore() {
 
     if (userScore == 5) {
         return "You win the Game!";
-        //add reset function
+        //add reset function?
     }
     else if (botScore == 5) {
         return "You lose the Game!";
-        //add reset function
+        //add reset function?
     }
     else {
-        return "";  //test if removing this will yield a cleaner code
+        return "";  
     }
 }
 
 //to do:
-// add game winning message
-// add game reset button / end game function
-// rework text and score content
+
 // spruce up the html and css to design a nice simple UI
 // ???
 // profit
