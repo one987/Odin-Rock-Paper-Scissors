@@ -3,16 +3,20 @@
 let userScore = 0;
 let botScore = 0;
 
+const selections = document.querySelector('.selections');
+const message = document.querySelector('.message');
+const score = document.querySelector('.score');
 
-    document.getElementById('rock').onclick = function(e){
+
+document.getElementById('rock').onclick = function(e){
         playerChoice = 'Rock';
         playGame();
       }
-    document.getElementById('paper').onclick = function(e){
+document.getElementById('paper').onclick = function(e){
         playerChoice = 'Paper';
         playGame();
       }
-    document.getElementById('scissors').onclick = function(e){
+document.getElementById('scissors').onclick = function(e){
         playerChoice = 'Scissors';
         playGame();
       }
@@ -53,8 +57,11 @@ function playGame() {
         const playerSelection = playerChoice;
         const computerSelection = getBotChoice();
         console.log("You:", playerSelection, "", "Bot:", computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
+        
+        message.textContent = `${playRound(playerSelection, computerSelection)}`;
         console.log("Score:", "You:", userScore, "Bot:", botScore);
+        score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
         console.log(finalScore());
 
     }
@@ -78,9 +85,3 @@ function finalScore() {
 
 
 
-//to do for refactor:
-//add event listener to buttons
-//console.log results of clicking buttons to test 
-//modify playerSelection to use buttons instead of prompt
-//???
-//profit

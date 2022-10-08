@@ -1,17 +1,28 @@
 body {
-    background-color: pink;
+    background-color: salmon;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
 }
+    
 
 .game-square {
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.game-info {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
