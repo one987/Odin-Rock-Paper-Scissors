@@ -1,9 +1,20 @@
 body {
-    background-color: salmon;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
-header {
+.container {
+    background-color: salmon;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid white;
+    border-radius: 15px;
+    width: 500px;
+
+}
+
+.header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +22,7 @@ header {
     
 
 .game-square {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +30,7 @@ header {
 }
 
 .game-info {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +39,7 @@ header {
 }
 
 .reset {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }

@@ -26,6 +26,8 @@ document.getElementById('scissors').onclick = () => {
 document.getElementById('reset').onclick = () => {
     botScore = 0;
     userScore = 0;
+    selections.textContent = "";
+    message.textContent = "Choose Rock, Paper or Scissors to start a game!";
     score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
     win.textContent = "";
 }
