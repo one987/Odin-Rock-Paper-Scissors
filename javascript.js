@@ -8,23 +8,29 @@ const message = document.querySelector('.message');
 const score = document.querySelector('.score');
 const win = document.querySelector('.win');
 
+function resetGame() {
+    
+    botScore = 0;
+    userScore = 0;
+    selections.textContent = "";
+    message.textContent = "Choose Rock, Paper or Scissors to start!";
+    score.textContent = `Score: You: ${userScore}  Bot: ${botScore}`;
+    win.textContent = "";
 
-document.getElementById('rock').onclick = () => {
-    playerSelection = 'Rock';
-    playGame();
-}
-document.getElementById('paper').onclick = () => {
-    playerSelection = 'Paper';
-    playGame();
-}
-document.getElementById('scissors').onclick = () => {
-    playerSelection = 'Scissors';
-    playGame();
-}
-document.getElementById('reset').onclick = () => {
-    resetGame();
-}
+    document.getElementById('rock').onclick = () => {
+        playerSelection = 'Rock';
+        playGame();
+    }
+    document.getElementById('paper').onclick = () => {
+        playerSelection = 'Paper';
+        playGame();
+    }
+    document.getElementById('scissors').onclick = () => {
+        playerSelection = 'Scissors';
+        playGame();
 
+    }
+}
 
 function getBotChoice() {
 
@@ -61,63 +67,14 @@ function playGame() {
     message.textContent = `${playRound(playerSelection, computerSelection)}`;
     selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
     score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
-    win.textContent = `${finalScore()}`;
-    checkScore(userScore, botScore);
-
+    finalScore();
 }
 
 // Final score function:
 function finalScore() {
 
     if (userScore == 5) {
-        return "You win the Game!";
-    }
-    else if (botScore == 5) {
-        return "You lose the Game!";
-    }
-    else {
-        return "";
-    }
-}
-
-function resetGame() {
-    
-    botScore = 0;
-    userScore = 0;
-    //DOM mods:
-    selections.textContent = "";
-    message.textContent = "Choose Rock, Paper or Scissors to start!";
-    score.textContent = `Score: You: ${userScore}  Bot: ${botScore}`;
-    win.textContent = "";
-
-    document.getElementById('rock').onclick = () => {
-        playerSelection = 'Rock';
-        playGame();
-    }
-    document.getElementById('paper').onclick = () => {
-        playerSelection = 'Paper';
-        playGame();
-    }
-    document.getElementById('scissors').onclick = () => {
-        playerSelection = 'Scissors';
-        playGame();
-
-}
-}
-
-function pageLoad() {
-    if (botScore == 0 && userScore == 0) {
-
-        message.textContent = "Choose Rock, Paper or Scissors to start!";
-        score.textContent = `Score: You: ${userScore}  Bot: ${botScore}`;
-
-    }
-
-}
-
-function checkScore(a, b) {
-    if (a == 5 || b == 5) {
-
+        win.textContent = "You win the Game!";
         document.getElementById('rock').onclick = () => {
             resetGame();
         }
@@ -128,9 +85,26 @@ function checkScore(a, b) {
             resetGame();
         }
     }
+    else if (botScore == 5) {
+        win.textContent = "You lose the Game!";
+        document.getElementById('rock').onclick = () => {
+            resetGame();
+        }
+        document.getElementById('paper').onclick = () => {
+            resetGame();
+        }
+        document.getElementById('scissors').onclick = () => {
+            resetGame();
+        }
+    }
+    else {
+        return "";
+    }
 }
 
-pageLoad();
+
+
+resetGame();
 
 
 
