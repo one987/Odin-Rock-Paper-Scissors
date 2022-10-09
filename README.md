@@ -12,3 +12,5 @@ I used google when I was stuck and figured out some errors by myself.
 I'll likely revisit and clean up the code a but when we build a GUI for it.
 
 Testing pushing and working on a new branch with git and github.
+
+Refactor mostly complete. Game now has a visual UI that functions properly. The game can be reset and once a winner is declared the game resets automatically as soon as you press any button. The code is a bit messy and I'm sure there are cleaner and better ways to do this but it's a learning experience. The CSS could use a little cleanup as well to fix redundancy. 
