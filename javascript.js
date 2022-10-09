@@ -8,7 +8,7 @@ const message = document.querySelector('.message');
 const score = document.querySelector('.score');
 const win = document.querySelector('.win');
 
-//player selection:
+
 document.getElementById('rock').onclick = () => {
     playerSelection = 'Rock';
     playGame();
@@ -21,18 +21,11 @@ document.getElementById('scissors').onclick = () => {
     playerSelection = 'Scissors';
     playGame();
 }
-
-//reset game button:
 document.getElementById('reset').onclick = () => {
-    botScore = 0;
-    userScore = 0;
-    selections.textContent = "";
-    message.textContent = "Choose Rock, Paper or Scissors to start a game!";
-    score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
-    win.textContent = "";
+    resetGame();
 }
 
-      
+
 function getBotChoice() {
 
     const items = ["Rock", "Paper", "Scissors"];
@@ -40,53 +33,63 @@ function getBotChoice() {
     return botChoice;
 }
 
-//Single round of rock paper scisors function()
+
 function playRound(playerSelection, computerSelection) {
-    
-    if (playerSelection == "Rock" && computerSelection == "Paper" || 
-    playerSelection == "Paper" && computerSelection == "Scissors" ||
-    playerSelection == "Scissors" && computerSelection== "Rock" ) {
+
+    if (playerSelection == "Rock" && computerSelection == "Paper" ||
+        playerSelection == "Paper" && computerSelection == "Scissors" ||
+        playerSelection == "Scissors" && computerSelection == "Rock") {
         botScore++;
         return `You lose! ${computerSelection} beats ${playerSelection}`;
     }
     else if (playerSelection == "Rock" && computerSelection == "Scissors" ||
-    playerSelection == "Paper" && computerSelection == "Rock" ||
-    playerSelection == "Scissors" && computerSelection == "Paper" ) {
+        playerSelection == "Paper" && computerSelection == "Rock" ||
+        playerSelection == "Scissors" && computerSelection == "Paper") {
         userScore++;
         return `You win! ${playerSelection} beats ${computerSelection}`;
     }
-    else (playerSelection == computerSelection) 
-        return "It's a tie!";
-    
+    else (playerSelection == computerSelection)
+    return "It's a tie!";
+
 }
 
 // Game function:
 function playGame() {
 
-        const computerSelection = getBotChoice();
-        //DOM mods:
-        message.textContent = `${playRound(playerSelection, computerSelection)}`;
-        selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
-        score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
-        win.textContent = `${finalScore()}`;
+    const computerSelection = getBotChoice();
+    //DOM mods:
+    message.textContent = `${playRound(playerSelection, computerSelection)}`;
+    selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
+    score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
+    win.textContent = `${finalScore()}`;
 
-    }
+}
 
 // Final score function:
 function finalScore() {
 
     if (userScore == 5) {
         return "You win the Game!";
-        //add reset function?
     }
     else if (botScore == 5) {
         return "You lose the Game!";
-        //add reset function?
     }
     else {
-        return "";  
+        return "";
     }
 }
+
+function resetGame() {
+    
+    botScore = 0;
+    userScore = 0;
+    //DOM mods:
+    selections.textContent = "";
+    message.textContent = "Choose Rock, Paper or Scissors to start a game!";
+    score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
+    win.textContent = "";
+}
+
 
 //to do:
 

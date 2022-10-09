@@ -1,14 +1,18 @@
+* {
+   /* border: 0.5px solid white; */
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     display: flex;
     justify-content: center;
+   
 }
 
 .container {
     background-color: salmon;
     padding: 20px;
     margin-top: 30px;
-    border: 1px solid white;
     border-radius: 15px;
     width: 500px;
 
@@ -30,6 +34,7 @@ body {
 }
 
 .game-info {
+    font-size: 18px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -42,4 +47,21 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+}
+
+.win {
+    font-weight: bold;
+    
+}
+
+button {
+    border: none;
+    border-radius: 4px;
+    padding: 3px 8px;
+    transition-duration: 0.3s;
+
+}
+
+button:hover {
+    background-color: #D3D3D3;
 }
