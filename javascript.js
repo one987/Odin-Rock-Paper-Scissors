@@ -32,6 +32,10 @@ function resetGame() {
     }
 }
 
+document.getElementById('reset').onclick = () => {
+    resetGame();
+}
+
 function getBotChoice() {
 
     const items = ["Rock", "Paper", "Scissors"];
@@ -101,8 +105,6 @@ function finalScore() {
         return "";
     }
 }
-
-
 
 resetGame();
 
