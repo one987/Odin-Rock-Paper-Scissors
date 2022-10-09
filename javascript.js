@@ -62,6 +62,7 @@ function playGame() {
     selections.textContent = `You: ${playerSelection}  Bot: ${computerSelection}`;
     score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
     win.textContent = `${finalScore()}`;
+    checkScore(userScore, botScore);
 
 }
 
@@ -85,15 +86,51 @@ function resetGame() {
     userScore = 0;
     //DOM mods:
     selections.textContent = "";
-    message.textContent = "Choose Rock, Paper or Scissors to start a game!";
-    score.textContent = `Score:  You: ${userScore}  Bot: ${botScore}`;
+    message.textContent = "Choose Rock, Paper or Scissors to start!";
+    score.textContent = `Score: You: ${userScore}  Bot: ${botScore}`;
     win.textContent = "";
+
+    document.getElementById('rock').onclick = () => {
+        playerSelection = 'Rock';
+        playGame();
+    }
+    document.getElementById('paper').onclick = () => {
+        playerSelection = 'Paper';
+        playGame();
+    }
+    document.getElementById('scissors').onclick = () => {
+        playerSelection = 'Scissors';
+        playGame();
+
+}
 }
 
+function pageLoad() {
+    if (botScore == 0 && userScore == 0) {
 
-//to do:
+        message.textContent = "Choose Rock, Paper or Scissors to start!";
+        score.textContent = `Score: You: ${userScore}  Bot: ${botScore}`;
 
-// spruce up the html and css to design a nice simple UI
-// ???
-// profit
+    }
+
+}
+
+function checkScore(a, b) {
+    if (a == 5 || b == 5) {
+
+        document.getElementById('rock').onclick = () => {
+            resetGame();
+        }
+        document.getElementById('paper').onclick = () => {
+            resetGame();
+        }
+        document.getElementById('scissors').onclick = () => {
+            resetGame();
+        }
+    }
+}
+
+pageLoad();
+
+
 
