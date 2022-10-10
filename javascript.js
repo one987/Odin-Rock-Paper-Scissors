@@ -9,7 +9,7 @@ const score = document.querySelector('.score');
 const win = document.querySelector('.win');
 
 function resetGame() {
-    
+
     botScore = 0;
     userScore = 0;
     selections.textContent = "";
